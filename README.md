@@ -77,6 +77,21 @@ $response = $request->get();
 $response = $request->get($uuid);
 ```
 
+### Payment Link
+
+```php
+use Purwantara\Purwantara\Collect\PaymentLink;
+
+
+$request = new PaymentLink($config);
+
+// Create transaction
+$response = $request->create($data);
+
+// Get transaction
+$response = $request->get($uuid);
+```
+
 ## Testing
 
 ```bash
