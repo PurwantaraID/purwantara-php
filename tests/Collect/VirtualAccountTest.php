@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\VirtualAccount;
 
 beforeEach(function () {
-    $token = '';
+    $token = getenv('PPN_TOKEN');
     $config = ['token' => $token];
     $this->virtualAccount = new VirtualAccount($config);
     $this->virtualAccountData = [

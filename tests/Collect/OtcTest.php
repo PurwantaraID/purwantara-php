@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\Otc;
 
 beforeEach(function () {
-    $token = '';
+    $token = getenv('PPN_TOKEN');
     $config = ['token' => $token];
     $this->otc = new Otc($config);
     $rand = rand(11111, 99999);

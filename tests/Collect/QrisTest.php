@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\Qris;
 
 beforeEach(function () {
-    $token = '';
+    $token = getenv('PPN_TOKEN');
     $config = ['token' => $token];
     $this->qris = new Qris($config);
     $this->qrisData = [
