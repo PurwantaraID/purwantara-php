@@ -13,7 +13,7 @@ beforeEach(function () {
         'description' => 'Testing Pembayaran',
         'expires_at' => date('Y-m-d\TH:i:sP', strtotime('+1 day')),
         'external_id' => 'ID-12345',
-        'return_url' => 'https://google.com'
+        'return_url' => 'https://google.com',
     ];
 });
 
