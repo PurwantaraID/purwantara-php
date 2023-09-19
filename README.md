@@ -80,7 +80,7 @@ $response = $request->get($uuid);
 ## Testing
 
 ```bash
-composer test
+PPN_TOKEN="XXXX" composer test
 ```
 
 ## Changelog

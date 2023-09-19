@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\Otc;
 
 beforeEach(function () {
-    $token = getenv('PPN_TOKEN');
+    $token = $_ENV['PPN_TOKEN'];
     $config = ['token' => $token];
     $this->otc = new Otc($config);
     $rand = rand(11111, 99999);
@@ -36,8 +36,4 @@ it('can get OTC inquiry', function () {
     $response = $this->otc->get($uuid);
 
     expect($response)->toHaveKeys(['status', 'success', 'data']);
-});
-
-afterEach(function () {
-    Mockery::close();
 });

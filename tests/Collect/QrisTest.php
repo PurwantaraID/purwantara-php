@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\Qris;
 
 beforeEach(function () {
-    $token = getenv('PPN_TOKEN');
+    $token = $_ENV['PPN_TOKEN'];
     $config = ['token' => $token];
     $this->qris = new Qris($config);
     $this->qrisData = [
@@ -40,8 +40,4 @@ it('can get QRIS inquiry', function () {
     $response = $this->qris->get($uuid);
 
     expect($response)->toHaveKeys(['status', 'success', 'data']);
-});
-
-afterEach(function () {
-    Mockery::close();
 });

@@ -3,7 +3,7 @@
 use Purwantara\Purwantara\Collect\VirtualAccount;
 
 beforeEach(function () {
-    $token = getenv('PPN_TOKEN');
+    $token = $_ENV['PPN_TOKEN'];
     $config = ['token' => $token];
     $this->virtualAccount = new VirtualAccount($config);
     $this->virtualAccountData = [
@@ -43,8 +43,4 @@ it('can cancel virtual account', function () {
     $response = $this->virtualAccount->get($uuid);
 
     expect($response)->toHaveKeys(['status', 'success']);
-});
-
-afterEach(function () {
-    Mockery::close();
 });
