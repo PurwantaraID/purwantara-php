@@ -4,16 +4,17 @@ use Purwantara\Purwantara\Collect\VirtualAccount;
 
 beforeEach(function () {
     $token = $_ENV['PPN_TOKEN'];
-    $config = ['token' => $token];
+    $config = ['token' => $token, 'is_sandbox' => true];
     $this->virtualAccount = new VirtualAccount($config);
+    $rand = rand(11111, 99999);
     $this->virtualAccountData = [
         'expected_amount' => 10000,
         'name' => 'Testing',
         'bank' => 'CIMB',
         'description' => 'Pembayaran Produk',
         'expired_at' => date('Y-m-d\TH:i:sP', strtotime('+1 day')),
-        'external_id' => 'ID-123456',
-        'merchant_trx_id' => 'ID-123456',
+        'external_id' => 'PPNID'.$rand,
+        'merchant_trx_id' => 'PPNID'.$rand,
     ];
 });
 

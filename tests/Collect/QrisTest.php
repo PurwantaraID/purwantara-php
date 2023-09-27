@@ -4,21 +4,22 @@ use Purwantara\Purwantara\Collect\Qris;
 
 beforeEach(function () {
     $token = $_ENV['PPN_TOKEN'];
-    $config = ['token' => $token];
+    $config = ['token' => $token, 'is_sandbox' => true];
+    $rand = rand(11111, 99999);
     $this->qris = new Qris($config);
     $this->qrisData = [
-        'amount' => 15000,
+        'amount' => 1000,
         'transaction_description' => 'Pembayaran Produk',
         'customer_email' => 'email@tokokami.tld',
         'customer_first_name' => 'Toko',
         'customer_last_name' => 'Kami',
         'customer_phone' => '081234567890',
         'payment_options_referral_code' => '',
-        'payment_channel' => 'shopeepay',
+        'payment_channel' => 'doku',
         'additional_data' => '',
-        'order_id' => 'ID-123456',
+        'order_id' => 'PPNID-'.$rand,
         'payment_method' => 'wallet',
-        'merchant_trx_id' => 'ID-123456',
+        'merchant_trx_id' => 'PPNID-'.$rand,
     ];
 });
 

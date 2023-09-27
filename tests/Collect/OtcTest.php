@@ -4,7 +4,10 @@ use Purwantara\Purwantara\Collect\Otc;
 
 beforeEach(function () {
     $token = $_ENV['PPN_TOKEN'];
-    $config = ['token' => $token];
+    $config = ['is_sandbox' => true, 
+    'token' => $token
+];
+    
     $this->otc = new Otc($config);
     $rand = rand(11111, 99999);
     $this->otcData = [
@@ -20,7 +23,6 @@ beforeEach(function () {
 
 it('can create OTC', function () {
     $response = $this->otc->create($this->otcData);
-
     expect($response)->toHaveKeys(['status', 'success', 'data']);
 });
 

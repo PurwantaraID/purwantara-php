@@ -4,7 +4,7 @@ use Purwantara\Purwantara\Collect\PaymentLink;
 
 beforeEach(function () {
     $token = $_ENV['PPN_TOKEN'];
-    $config = ['token' => $token];
+    $config = ['token' => $token, 'is_sandbox' => true];
     $this->paymentLink = new PaymentLink($config);
     $rand = rand(11111, 99999);
     $this->paymentLinkData = [
@@ -12,7 +12,7 @@ beforeEach(function () {
         'title' => 'Pembayaran',
         'description' => 'Testing Pembayaran',
         'expires_at' => date('Y-m-d\TH:i:sP', strtotime('+1 day')),
-        'external_id' => 'ID-12345',
+        'external_id' => 'PPNID-'.$rand,
         'return_url' => 'https://google.com',
     ];
 });
