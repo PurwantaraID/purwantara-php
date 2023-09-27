@@ -4,10 +4,10 @@ use Purwantara\Purwantara\Collect\Otc;
 
 beforeEach(function () {
     $token = $_ENV['PPN_TOKEN'];
-    $config = ['is_sandbox' => true, 
-    'token' => $token
-];
-    
+    $config = ['is_sandbox' => true,
+        'token' => $token,
+    ];
+
     $this->otc = new Otc($config);
     $rand = rand(11111, 99999);
     $this->otcData = [
